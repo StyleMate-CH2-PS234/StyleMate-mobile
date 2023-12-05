@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">StyleMate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="profile_fragment">Ini adalah Profile Fragment</string>
+    <string name="home_fragment">Ini adalah Home Fragment</string>
+    <string name="scan_fragment">Ini adalah Scan Fragment</string>
+
 </resources>
