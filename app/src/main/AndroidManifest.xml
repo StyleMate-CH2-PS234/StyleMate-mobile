@@ -40,7 +40,7 @@
             android:value="AIzaSyDfpr9UueeOGro2N-snmM5BJ8QmW5nIuDU" />
 
         <activity
-            android:name=".SignUpActivity"
+            android:name=".register.SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"

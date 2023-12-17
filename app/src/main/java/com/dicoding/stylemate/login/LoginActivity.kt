@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.stylemate.MainActivity
 import com.dicoding.stylemate.R
-import com.dicoding.stylemate.SignUpActivity
+import com.dicoding.stylemate.register.SignUpActivity
 import com.dicoding.stylemate.data.DataPreferences
 import com.google.android.material.textfield.TextInputEditText
 

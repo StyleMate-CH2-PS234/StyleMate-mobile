@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.FragmentProfileBinding
 import com.dicoding.stylemate.databinding.FragmentScanBinding
+import com.dicoding.stylemate.login.LoginActivity
 
 class Profile : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -25,11 +27,20 @@ class Profile : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val dataPreferences = DataPreferences(requireContext())
+
         // Gunakan binding untuk mengakses elemen UI
         binding.btnEdit.setOnClickListener {
             // Menggunakan Intent untuk memulai Activity baru
             val intent = Intent(activity, EditProfileActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.btnLogout.setOnClickListener {
+            dataPreferences.setToken("")
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
     }
 
