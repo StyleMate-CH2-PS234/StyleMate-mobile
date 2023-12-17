@@ -58,6 +58,11 @@ dependencies {
     implementation("androidx.camera:camera-lifecycle:$cameraxVersion")
     implementation("androidx.camera:camera-view:$cameraxVersion")
 
+    //maps
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation ("com.google.android.gms:play-services-maps:17.0.1")
+    implementation ("com.google.android.gms:play-services-location:17.1.0")
+
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
