@@ -10,6 +10,8 @@ class Onboarding1 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_onboarding1)
 
+
+
         val btnNext: ImageButton = findViewById(R.id.btnNext)
         btnNext.setOnClickListener {
             navigateToNextPage()
