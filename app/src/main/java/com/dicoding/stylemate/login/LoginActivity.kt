@@ -38,8 +38,8 @@ class LoginActivity : AppCompatActivity() {
 
 
         loginViewModel.isSukses.observe(this){
-            if(it){
                 progressBar.visibility = View.INVISIBLE
+            if(it){
                 Toast.makeText(this, "Login Sukses", Toast.LENGTH_SHORT).show()
                 navigateToHome()
             }else {

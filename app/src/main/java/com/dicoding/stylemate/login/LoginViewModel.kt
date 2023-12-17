@@ -1,5 +1,6 @@
 package com.dicoding.stylemate.login
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.stylemate.api.ApiConfig
@@ -24,9 +25,16 @@ class LoginViewModel : ViewModel() {
                 isLoading.postValue(false)
                 if(response.isSuccessful){
                     if(response.body() != null && response.body()?.data != null){
-                        isSukses.postValue(true)
-                        token.postValue(response.body()!!.data!!.stsTokenManager!!.accessToken)
-                        refreshToken.postValue(response.body()!!.data!!.stsTokenManager!!.refreshToken)
+                        if(response.body()!!.success!!){
+                            isSukses.postValue(true)
+                            token.postValue(response.body()!!.data!!.stsTokenManager!!.accessToken)
+                            refreshToken.postValue(response.body()!!.data!!.stsTokenManager!!.refreshToken)
+                        } else {
+                            isSukses.postValue(false)
+                        }
+
+                    } else {
+                        isSukses.postValue(false)
                     }
                 }else {
                     isSukses.postValue(false)
