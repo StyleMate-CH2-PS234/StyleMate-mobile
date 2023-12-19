@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.dicoding.stylemate.databinding.ActivityMainBinding
+import com.dicoding.stylemate.home.Home
+import com.dicoding.stylemate.profile.Profile
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.dicoding.stylemate
+package com.dicoding.stylemate.profile
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.dicoding.stylemate.EditProfileActivity
 import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.FragmentProfileBinding
-import com.dicoding.stylemate.databinding.FragmentScanBinding
 import com.dicoding.stylemate.login.LoginActivity
 
 class Profile : Fragment() {

@@ -28,5 +28,6 @@
     <string name="Welcome_splash">Selamat Datang di Style Mate</string>
     <string name="Landing_Description">Selamat Datang di Style Mau Gaya Rambut Apa Hari ini ?</string>
     <string name="Landing_Handline">Style Mate Your Style Your Life !</string>
+    <string name="password_length">Password Harus Berisi Minimal 8 Karakter</string>
 
 </resources>
