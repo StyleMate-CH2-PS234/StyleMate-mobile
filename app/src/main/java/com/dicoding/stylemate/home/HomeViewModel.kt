@@ -2,7 +2,6 @@ package com.dicoding.stylemate.home
 
 import android.content.ContentValues
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.stylemate.api.ApiConfig
@@ -29,7 +28,6 @@ class HomeViewModel: ViewModel() {
                 if (response.isSuccessful){
                     if (response.body() != null){
                             isSukses.postValue(true)
-//                        Log.d("HomeViewModel", "onResponse: ${response.body()}")
                             salonlist.postValue(response.body()!!.listPotong as List<ListPotongItem>?)
                     }else{
                         throw HttpException(response)

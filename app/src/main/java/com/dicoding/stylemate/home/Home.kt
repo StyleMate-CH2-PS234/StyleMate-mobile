@@ -1,21 +1,26 @@
 package com.dicoding.stylemate.home
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.location.Location
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.request.transition.Transition
 import com.dicoding.stylemate.R
 import com.dicoding.stylemate.adapter.SalonAdapter
+import com.dicoding.stylemate.api.ListPotongItem
 import com.dicoding.stylemate.databinding.FragmentHomeBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -36,6 +41,7 @@ class Home : Fragment(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var viewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
+//    private val viewAdapter: SalonAdapter = SalonAdapter(List<ListPotongItem>)
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -43,14 +49,11 @@ class Home : Fragment(), OnMapReadyCallback {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-//        val view = inflater.inflate(R.layout.fragment_home, container, false)
         val root: View = binding.root
 
-
+        (activity as AppCompatActivity).supportActionBar?.title = "Lokasi Salon Terdekat"
 
         return root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,22 +71,62 @@ class Home : Fragment(), OnMapReadyCallback {
         viewModel.salonlist.observe(viewLifecycleOwner) { salonList ->
             salonList.forEach {
                 val pos = LatLng(it.geometry?.location!!.lat!!, it.geometry.location.lng!!)
+                val customMarkerIcon = customMarkerIcon(requireContext(), R.drawable.maps_marker)
                 mMap.addMarker(
                     MarkerOptions()
                         .position(pos)
                         .title(it.name)
                         .snippet(it.rating.toString())
+                        .icon(customMarkerIcon)
+                        
                 )
             }
 
-//            for ( salon in salonList  ){
-//
-//            }
-            binding.rvSalon.layoutManager = LinearLayoutManager(requireContext())
+            binding.rvSalon.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             val adapter = SalonAdapter(salonList)
+
+            adapter.setOnMapClickCallback(object : SalonAdapter.OnMapClickCallback{
+                override fun onItemClicked(data: ListPotongItem) {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(data.url))
+                    startActivity(intent)
+                }
+            })
+
+            adapter.setOnTelpClickCallback(object : SalonAdapter.OnTelpClickCallback{
+                override fun onItemClicked(data: ListPotongItem) {
+                    val intent = Intent(Intent.ACTION_DIAL)
+                    val uri = Uri.parse("tel:${data.formattedPhoneNumber}")
+                    intent.data = uri
+                    startActivity(intent)
+                }
+            })
 
             binding.rvSalon.adapter = adapter
         }
+    }
+
+    private fun customMarkerIcon(requireContext: Context, mapsMarker: Int): BitmapDescriptor? {
+        val drawable = ContextCompat.getDrawable(requireContext, mapsMarker)
+
+        drawable?.let {
+            val width = it.intrinsicWidth
+            val height = it.intrinsicHeight
+
+            // Set bounds to the drawable
+            it.setBounds(0, 0, width, height)
+
+            // Create a Bitmap
+            val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+
+            // Create a Canvas and draw the drawable to the Bitmap
+            val canvas = Canvas(bitmap)
+            it.draw(canvas)
+
+            // Return the BitmapDescriptor
+            return BitmapDescriptorFactory.fromBitmap(bitmap)
+        }
+
+        return null
     }
 
 
@@ -94,15 +137,6 @@ class Home : Fragment(), OnMapReadyCallback {
         mMap.uiSettings.isIndoorLevelPickerEnabled = true
         mMap.uiSettings.isCompassEnabled = true
         mMap.uiSettings.isMapToolbarEnabled = true
-
-//        val dicodingSpace = LatLng(-6.8957643, 107.6338462)
-//        mMap.addMarker(
-//            MarkerOptions()
-//                .position(dicodingSpace)
-//                .title("Dicoding Space")
-//                .snippet("Batik Kumeli No.50")
-//        )
-//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(dicodingSpace, 15f))
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         getMyLocation()
@@ -181,3 +215,4 @@ class Home : Fragment(), OnMapReadyCallback {
         return BitmapDescriptorFactory.fromBitmap(bitmap)
     }
 }
+

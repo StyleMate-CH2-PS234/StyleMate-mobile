@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/gradient_background1">
+    android:background="#6DB9EF">
 
     <TextView
         android:id="@+id/tv_login_headline"

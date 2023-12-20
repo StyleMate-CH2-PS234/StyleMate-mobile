@@ -5,17 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    app:cardCornerRadius="4dp"
     app:cardElevation="4dp"
     app:cardMaxElevation="4dp"
-    android:backgroundTint="#D8F3BA"
     android:layout_marginHorizontal="16dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="6dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cv_item_content"
         android:layout_width="match_parent"
-        android:layout_height="230dp">
+        android:layout_height="310dp">
 
         <ImageView
             android:id="@+id/ivItemFotoSalon"
@@ -37,15 +36,71 @@
             android:id="@+id/tvItemNamaSalon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:layout_marginTop="16dp"
+            android:text="Nama"
+            android:textColor="@color/black"
+            android:layout_marginTop="8dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivItemFotoSalon" />
+
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="0dp"
+            android:text="Rating :"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemNamaSalon" />
+
+        <TextView
+            android:id="@+id/tvItemRatingSalon"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="0dp"
+            android:text="4.7"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:drawableRight="@drawable/ic_star"
+            app:layout_constraintStart_toEndOf="@+id/tvRating"
+            app:layout_constraintTop_toBottomOf="@+id/tvItemNamaSalon" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/tvRating"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp">
+
+            <!-- Button untuk Maps -->
+            <Button
+                android:id="@+id/btnMaps"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_lokasi"
+                android:layout_height="wrap_content"
+                android:text="Lokasi" />
+
+            <!-- Button untuk Telepon -->
+            <Button
+                android:id="@+id/btnTelepon"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_telepon"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Telepon"/>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

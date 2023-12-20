@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import com.dicoding.stylemate.CameraActivity.Companion.CAMERAX_RESULT
@@ -45,6 +46,9 @@ class Scan : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentScanBinding.inflate(inflater, container, false)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Rekomendasi Gaya Rambut"
+
         return binding.root
     }
 

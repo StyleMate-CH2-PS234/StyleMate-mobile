@@ -23,7 +23,7 @@ data class ListPotongItem(
 	val name: String? = null,
 
 	@field:SerializedName("rating")
-	val rating: Any? = null,
+	val rating: String? = null,
 
 	@field:SerializedName("geometry")
 	val geometry: Geometry? = null,
