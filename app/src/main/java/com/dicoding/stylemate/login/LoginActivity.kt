@@ -53,6 +53,7 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener {
             // Handle login logic here
+            dataPreferences.setEmailPass(email.text.toString(), password.text.toString())
             loginViewModel.login(email.text.toString(), password.text.toString())
             progressBar.visibility = View.VISIBLE
 

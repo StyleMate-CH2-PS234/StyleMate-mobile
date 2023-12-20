@@ -1,4 +1,4 @@
-package com.dicoding.stylemate
+package com.dicoding.stylemate.scan
 
 import android.Manifest
 import android.content.Intent
@@ -16,13 +16,18 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
+import androidx.lifecycle.ViewModelProvider
+import com.dicoding.stylemate.CameraActivity
 import com.dicoding.stylemate.CameraActivity.Companion.CAMERAX_RESULT
 import com.dicoding.stylemate.databinding.FragmentScanBinding
+import com.dicoding.stylemate.home.HomeViewModel
+import com.dicoding.stylemate.uriToFile
 
 class Scan : Fragment() {
 
     private lateinit var binding: FragmentScanBinding
     private var currentImageUri: Uri? = null
+    private lateinit var viewModel: ScanViewModel
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -55,12 +60,27 @@ class Scan : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel = ViewModelProvider(this)[ScanViewModel::class.java]
+
         if (!allPermissionsGranted()) {
             requestPermissionLauncher.launch(REQUIRED_PERMISSION)
         }
 
+        viewModel.data.observe(viewLifecycleOwner){
+            binding.progressBar2.visibility = View.INVISIBLE
+            binding.tvResult.text = it.predictionText
+            binding.tvResult.visibility = View.VISIBLE
+        }
+
         binding.btnGaleri.setOnClickListener { startGallery() }
         binding.btnCamera.setOnClickListener { startCameraX() }
+        binding.btnUpload.setOnClickListener {
+            if(currentImageUri != null){
+
+            } else {
+                Toast.makeText(requireContext(), "Ambil foto terlebih dahulu", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun startGallery() {
@@ -96,6 +116,9 @@ class Scan : Fragment() {
     private fun showImage() {
         currentImageUri?.let {
             Log.d("Image URI", "showImage: $it")
+
+            viewModel.upload(uriToFile(it, requireContext()))
+            binding.progressBar2.visibility = View.VISIBLE
             binding.previewImageView.setImageURI(it)
         }
     }

@@ -33,7 +33,7 @@
             android:name=".CobaMainActivity"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".editProfile.EditProfileActivity"
             android:exported="false" />
         <activity
             android:name=".RekomendasiActivity"
@@ -53,7 +53,7 @@
             android:name=".WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".Onboarding3"
@@ -68,7 +68,7 @@
             android:name=".CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

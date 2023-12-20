@@ -28,7 +28,6 @@ class LoginViewModel : ViewModel() {
                         if(response.body()!!.success!!){
                             isSukses.postValue(true)
                             token.postValue(response.body()!!.data!!.stsTokenManager!!.accessToken)
-                            refreshToken.postValue(response.body()!!.data!!.stsTokenManager!!.refreshToken)
                         } else {
                             isSukses.postValue(false)
                         }

@@ -1,6 +1,8 @@
 package com.dicoding.stylemate.api
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class LoginResponse(
 
@@ -14,6 +16,30 @@ data class LoginResponse(
 	val errors: Any? = null
 )
 
+@Parcelize
+data class ProviderDataItem(
+
+	@field:SerializedName("uid")
+	val uid: String? = null,
+
+	@field:SerializedName("photoURL")
+	val photoURL: String? = null,
+
+	@field:SerializedName("phoneNumber")
+	val phoneNumber: String? = null,
+
+	@field:SerializedName("providerId")
+	val providerId: String? = null,
+
+	@field:SerializedName("displayName")
+	val displayName: String? = null,
+
+	@field:SerializedName("email")
+	val email: String? = null
+) : Parcelable
+
+
+@Parcelize
 data class StsTokenManager(
 
 	@field:SerializedName("expirationTime")
@@ -24,29 +50,9 @@ data class StsTokenManager(
 
 	@field:SerializedName("refreshToken")
 	val refreshToken: String? = null
-)
+) : Parcelable
 
-data class ProviderDataItem(
-
-	@field:SerializedName("uid")
-	val uid: String? = null,
-
-	@field:SerializedName("photoURL")
-	val photoURL: Any? = null,
-
-	@field:SerializedName("phoneNumber")
-	val phoneNumber: Any? = null,
-
-	@field:SerializedName("providerId")
-	val providerId: String? = null,
-
-	@field:SerializedName("displayName")
-	val displayName: String? = null,
-
-	@field:SerializedName("email")
-	val email: String? = null
-)
-
+@Parcelize
 data class Data(
 
 	@field:SerializedName("uid")
@@ -54,6 +60,9 @@ data class Data(
 
 	@field:SerializedName("emailVerified")
 	val emailVerified: Boolean? = null,
+
+	@field:SerializedName("photoURL")
+	val photoURL: String? = null,
 
 	@field:SerializedName("createdAt")
 	val createdAt: String? = null,
@@ -81,4 +90,4 @@ data class Data(
 
 	@field:SerializedName("email")
 	val email: String? = null
-)
+) : Parcelable
