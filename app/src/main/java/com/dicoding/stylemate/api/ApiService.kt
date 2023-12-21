@@ -44,6 +44,11 @@ interface ApiService {
         @Path("latlng") latlng: String
     ): Call<SalonResponse>
 
+    @GET("place/search/{latlng}/salon")
+    fun getSalonSearch(
+        @Path("latlng") latlng: String
+    ): Call<SalonResponse>
+
     @FormUrlEncoded
     @POST("auth/name")
     fun changeName(

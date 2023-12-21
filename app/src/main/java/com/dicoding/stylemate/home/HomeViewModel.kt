@@ -29,11 +29,12 @@ class HomeViewModel: ViewModel() {
             override fun onResponse(call: Call<SalonResponse>, response: Response<SalonResponse>) {
                 isLoading.postValue(false)
                 if (response.isSuccessful){
-                    if (response.body() != null){
+                    if (response.body()!!.listPotong != arrayOf<ListPotongItem>()){
                             isSukses.postValue(true)
                             salonlist.postValue(response.body()!!.listPotong as List<ListPotongItem>?)
                     }else{
                         throw HttpException(response)
+
                     }
                 } else{
                     throw HttpException(response)
@@ -45,6 +46,39 @@ class HomeViewModel: ViewModel() {
                     isLoading.value = false
                     isSukses.postValue(false)
                     Log.e(ContentValues.TAG,"Error:${t.message.toString()}")
+                }
+
+            })
+
+    }
+
+
+    fun getSalonSearch(lat : Double, lng: Double){
+        val latng: String = "${lat.toString()},${lng.toString()}"
+        isLoading.postValue(true)
+        val apiService = ApiConfig.getApiService()
+        val salonRequest = apiService.getSalonSearch(latng)
+            .enqueue(object: Callback<SalonResponse>{
+                override fun onResponse(call: Call<SalonResponse>, response: Response<SalonResponse>) {
+                    isLoading.postValue(false)
+                    if (response.isSuccessful){
+                        if (!response.body()!!.listPotong!!.isEmpty()){
+                            isSukses.postValue(true)
+                            salonlist.postValue(response.body()!!.listPotong as List<ListPotongItem>?)
+                        }else{
+                            getSalon(lat, lng)
+                        }
+                    } else{
+                        getSalon(lat, lng)
+                    }
+                }
+
+
+                override fun onFailure(call: Call<SalonResponse>, t: Throwable) {
+                    isLoading.value = false
+                    isSukses.postValue(false)
+                    Log.e(ContentValues.TAG,"Error:${t.message.toString()}")
+                    getSalon(lat, lng)
                 }
 
             })

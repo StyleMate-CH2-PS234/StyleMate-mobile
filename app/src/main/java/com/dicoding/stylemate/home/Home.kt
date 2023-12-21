@@ -177,7 +177,7 @@ class Home : Fragment(), OnMapReadyCallback {
                     // Use the location object to get the user's location
                     if (location != null) {
 
-                        viewModel.getSalon(location.latitude, location.longitude)
+                        viewModel.getSalonSearch(location.latitude, location.longitude)
 
                         val myLoc = LatLng(location.latitude, location.longitude)
                         mMap.addMarker(
