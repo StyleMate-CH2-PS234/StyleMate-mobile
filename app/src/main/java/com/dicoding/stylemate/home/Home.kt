@@ -17,10 +17,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.bumptech.glide.request.transition.Transition
 import com.dicoding.stylemate.R
 import com.dicoding.stylemate.adapter.SalonAdapter
 import com.dicoding.stylemate.api.ListPotongItem
+import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.FragmentHomeBinding
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -59,12 +61,24 @@ class Home : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val dataPreferences = DataPreferences(requireContext())
+
 
         mapView = binding.mapView
         mapView!!.onCreate(savedInstanceState)
         mapView!!.getMapAsync(this)
 
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        viewModel.getUser(dataPreferences.getEmail(), dataPreferences.getPass())
+        binding.tvHomeNama.text = "...."
+
+        viewModel.dataUser.observe(viewLifecycleOwner){
+            binding.tvHomeNama.text = it.displayName
+            Glide.with(binding.ivHomeProfil)
+                .load(it.photoURL)
+                .error(R.drawable.angie)
+                .into(binding.ivHomeProfil)
+        }
 
 
 

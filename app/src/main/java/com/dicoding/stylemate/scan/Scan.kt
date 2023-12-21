@@ -21,6 +21,7 @@ import com.dicoding.stylemate.CameraActivity
 import com.dicoding.stylemate.CameraActivity.Companion.CAMERAX_RESULT
 import com.dicoding.stylemate.databinding.FragmentScanBinding
 import com.dicoding.stylemate.home.HomeViewModel
+import com.dicoding.stylemate.recommend.RecommendActivity
 import com.dicoding.stylemate.uriToFile
 
 class Scan : Fragment() {
@@ -28,6 +29,7 @@ class Scan : Fragment() {
     private lateinit var binding: FragmentScanBinding
     private var currentImageUri: Uri? = null
     private lateinit var viewModel: ScanViewModel
+    private var predictWait = true
 
     private val requestPermissionLauncher =
         registerForActivityResult(
@@ -67,6 +69,7 @@ class Scan : Fragment() {
         }
 
         viewModel.data.observe(viewLifecycleOwner){
+            predictWait = false
             binding.progressBar2.visibility = View.INVISIBLE
             binding.tvResult.text = it.predictionText
             binding.tvResult.visibility = View.VISIBLE
@@ -76,11 +79,19 @@ class Scan : Fragment() {
         binding.btnCamera.setOnClickListener { startCameraX() }
         binding.btnUpload.setOnClickListener {
             if(currentImageUri != null){
-
+                if(predictWait){
+                    Toast.makeText(requireContext(), "Tunggu hasil prediksi keluar", Toast.LENGTH_SHORT).show()
+                } else {
+                    val intent = Intent(requireContext(), RecommendActivity::class.java)
+                    intent.putExtra(RecommendActivity.EXTRA_FACE, binding.tvResult.text.toString())
+                    startActivity(intent)
+                }
             } else {
                 Toast.makeText(requireContext(), "Ambil foto terlebih dahulu", Toast.LENGTH_SHORT).show()
             }
         }
+
+
     }
 
     private fun startGallery() {
@@ -114,6 +125,7 @@ class Scan : Fragment() {
     }
 
     private fun showImage() {
+        predictWait = true
         currentImageUri?.let {
             Log.d("Image URI", "showImage: $it")
 

@@ -14,6 +14,7 @@ import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -38,7 +39,7 @@ interface ApiService {
     ): Call<UploadResponse>
 
 
-    @GET("place/search/{latlng}/salon")
+    @GET("place/static/{latlng}/salon")
     fun getSalon(
         @Path("latlng") latlng: String
     ): Call<SalonResponse>
@@ -66,6 +67,12 @@ interface ApiService {
         @Header("password") password: String,
         @Field("password") newPassword: String
     ) : Call<LoginResponse>
+
+
+    @GET("model/recommend")
+    fun getRecommend(
+        @Query("face") face: String
+    ) : Call<RecommendResponse>
 }
 
 class ApiConfig {
