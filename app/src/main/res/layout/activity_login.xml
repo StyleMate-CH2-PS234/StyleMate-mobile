@@ -13,7 +13,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-
+        android:textColor="@color/black"
         android:layout_marginTop="24dp"
         android:text="@string/Headline_login"
         android:textSize="30sp"
@@ -24,7 +24,7 @@
         android:id="@+id/tv_login_description"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-
+        android:textColor="@color/black"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/montserrat_medium"
         android:text="@string/Tagline_login"
@@ -86,7 +86,7 @@
         android:text="@string/Lupa_Password"
         android:fontFamily="@font/montserrat_bold"
         android:textColor="#427D9D"
-
+        android:visibility="invisible"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_password_layout" />
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:fontFamily="@font/montserrat_semibold"
-
+        android:textColor="@color/black"
         android:text="@string/login_to_register"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -153,7 +153,9 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.449" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

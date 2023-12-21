@@ -25,13 +25,34 @@
         android:layout_centerHorizontal="true"
         android:text="Ganti Foto"/>
 
-    <EditText
-        android:id="@+id/etUbahNama"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_nama_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnUbahFoto"
         android:layout_marginTop="16dp"
-        android:hint="Masukkan Nama"/>
+        android:hint="@string/Nama_Lengkap"
+        android:layout_below="@id/btnUbahFoto"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_person">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUbahNama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/masukan_nama_lengkap"
+            android:fontFamily="@font/montserrat_medium"
+            android:textSize="14sp"
+            tools:ignore="TouchTargetSizeCheck,VisualLintTextFieldSize" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <EditText-->
+<!--        android:id="@+id/etUbahNama"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/btnUbahFoto"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="Masukkan Nama"/>-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etUbahEmailLayout"
@@ -39,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_below="@id/etUbahNama"
+        android:layout_below="@id/edt_nama_layout"
         app:startIconDrawable="@drawable/ic_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -63,30 +84,77 @@
 <!--        android:hint="Masukkan Email"-->
 <!--        android:inputType="textEmailAddress" />-->
 
-    <EditText
-        android:id="@+id/etPasswordLama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/etUbahEmail"
-        android:layout_marginTop="16dp"
-        android:hint="Masukkan Password Lama"
-        android:inputType="textPassword" />
+<!--    <EditText-->
+<!--        android:id="@+id/etPasswordLama"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/etUbahEmailLayout"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="Masukkan Password Lama"-->
+<!--        android:inputType="textPassword" />-->
 
-    <EditText
-        android:id="@+id/etPasswordBaru"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_password_layout_lama"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etPasswordLama"
-        android:layout_marginTop="16dp"
-        android:hint="Masukkan Password Baru"
-        android:inputType="textPassword" />
+        android:layout_marginTop="8dp"
+        app:endIconMode="password_toggle"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        android:layout_below="@id/etUbahEmailLayout"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPasswordLama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Masukkan Password Lama"
+            android:password="true"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_password_layout_baru"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:endIconMode="password_toggle"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        android:layout_below="@id/edt_password_layout_lama"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPasswordBaru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Masukkan Password Baru"
+            android:password="true"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <EditText-->
+<!--        android:id="@+id/etPasswordBaru"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/etPasswordLama"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="Masukkan Password Baru"-->
+<!--        android:inputType="textPassword" />-->
 
     <Button
         android:id="@+id/btnSaveChanges"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:backgroundTint="@color/warnadasar"
-        android:layout_below="@id/etPasswordBaru"
+        android:layout_below="@id/edt_password_layout_baru"
         android:layout_marginTop="16dp"
         android:text="Simpan Perubahan"/>
 

@@ -6,11 +6,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.dicoding.stylemate.R
 import com.dicoding.stylemate.api.Data
 import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.ActivityEditProfileBinding
@@ -25,12 +28,16 @@ class EditProfileActivity : AppCompatActivity() {
     private var imageEdited: File? = null
     private lateinit var viewModel: EditProfileViewModel
     private var tempPassword: String? = null
+    private lateinit var editTextPasswordLama: EditText
+    private lateinit var editTextPasswordBaru: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val dataPreferences = DataPreferences(this)
+        editTextPasswordLama = findViewById(R.id.etPasswordLama)
+        editTextPasswordBaru = findViewById(R.id.etPasswordBaru)
 
         viewModel = ViewModelProvider(this)[EditProfileViewModel::class.java]
         
@@ -101,6 +108,8 @@ class EditProfileActivity : AppCompatActivity() {
 
 
         }
+        editTextPasswordLama.addTextChangedListener { validatePasswordLama() }
+        editTextPasswordBaru.addTextChangedListener { validatePasswordBaru() }
     }
 
     private fun startGallery() {
@@ -123,6 +132,26 @@ class EditProfileActivity : AppCompatActivity() {
             Log.d("Image URI", "showImage: $it")
             imageEdited = uriToFile(it, this)
             binding.ivUbahFoto.setImageURI(it)
+        }
+    }
+
+    private fun validatePasswordLama() {
+        val password = editTextPasswordLama.text.toString().trim()
+
+        if (password.length < 8) {
+            editTextPasswordLama.error = "Password harus memiliki setidaknya 8 karakter"
+        } else {
+            editTextPasswordLama.error = null  // Menghapus pesan kesalahan jika password valid
+        }
+    }
+
+    private fun validatePasswordBaru() {
+        val password = editTextPasswordBaru.text.toString().trim()
+
+        if (password.length < 8) {
+            editTextPasswordBaru.error = "Password harus memiliki setidaknya 8 karakter"
+        } else {
+            editTextPasswordBaru.error = null  // Menghapus pesan kesalahan jika password valid
         }
     }
 
