@@ -3,9 +3,6 @@
     <!-- TODO: Remove or change this placeholder text -->
 
     <string name="Welcome">Welcome Onboard</string>
-    <string name="On_1">Anda Bingung dengan Model Rambut Anda ?</string>
-    <string name="on_2">Mau direkomendasiin sama aplikasi Style Mate?</string>
-    <string name="On_3">Cuss Buruan coba dan lihat style rambut yang cocok !</string>
     <string name="Logo">Style Mate</string>
     <string name="Landing_Page">Let\'s Get Started</string>
     <string name="Login">Login</string>
@@ -21,7 +18,7 @@
     <string name="register">Register</string>
     <string name="register_to_login">Register to login? " " </string>
     <string name="Headline_Login">Let\'s Go Everyone !</string>
-    <string name="Tagline_login">Gaya mu gaya ku dong !</string>
+    <string name="Tagline_login">Gayamu tentukan penampilanmu !</string>
     <string name="Headline_login">Let\'s Go Everyone !</string>
     <string name="Lupa_Password">Forgot Password ?</string>
     <string name="login_to_register">Belum Punya Akun ?</string>
@@ -29,5 +26,18 @@
     <string name="Landing_Description">Selamat Datang di Style Mau Gaya Rambut Apa Hari ini ?</string>
     <string name="Landing_Handline">Style Mate Your Style Your Life !</string>
     <string name="password_length">Password Harus Berisi Minimal 8 Karakter</string>
+
+
+
+    //Buat Onboarding
+    <string name="title_menu_1">Temukan Salon Terbaik</string>
+    <string name="title_menu_2">Temukan Salon Terdekat dari Anda</string>
+    <string name="title_menu_3">Bingung Gaya Rambut?</string>
+    <string name="title_menu_4">Temukan Rekomendasi Gaya Rambut Terbaik</string>
+    <string name="desc_menu_1">Salon Terbaik adalah idaman semua orang, kualitas dan kenyamanan sangat dibutuhkan semua orang.</string>
+    <string name="desc_menu_2">Anda kebingungan mencari salon di sekitar?. Kita menghadirkan fitur untuk menampilkan salon yang berada disekitar anda, kapan pun dan dimana pun.</string>
+    <string name="desc_menu_3">Gaya rambut adalah salah satu hal yang dapat mempengaruhi penampilan. Anda bisa mencari referensi dalam aplikasi Style Mate.</string>
+    <string name="desc_menu_4">Kami hadirkan fitur Rekomendadi Gaya Rambut dengan tujuan memudahkan anda yang kebingungan mengenai gaya rambut apa yang sesuai dengan muka anda.</string>
+    <string name="learn_now">Coba Sekarang</string>
 
 </resources>

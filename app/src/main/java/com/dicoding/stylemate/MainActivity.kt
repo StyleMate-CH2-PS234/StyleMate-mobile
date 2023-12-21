@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home -> replaceFragment(Home())
-                R.id.scan -> replaceFragment(Scan())
                 R.id.profil -> replaceFragment(Profile())
                 else -> {
 
@@ -28,6 +27,11 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+        binding.fab.setOnClickListener {
+            replaceFragment(Scan())
+        }
+        binding.bottomNavigationView.background = null
+        binding.bottomNavigationView.menu.getItem(1).isEnabled = false
 
 
     }

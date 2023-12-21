@@ -87,8 +87,9 @@
                 android:id="@+id/btnMaps"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/warnadasar"
                 android:drawableLeft="@drawable/ic_lokasi"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="Lokasi" />
 
             <!-- Button untuk Telepon -->
@@ -96,8 +97,9 @@
                 android:id="@+id/btnTelepon"
                 android:layout_width="0dp"
                 android:layout_weight="1"
+                android:backgroundTint="@color/warnadasar"
                 android:drawableLeft="@drawable/ic_telepon"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginStart="8dp"
                 android:text="Telepon"/>
         </LinearLayout>

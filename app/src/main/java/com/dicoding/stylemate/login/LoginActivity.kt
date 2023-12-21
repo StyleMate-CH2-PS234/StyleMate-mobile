@@ -3,11 +3,14 @@ package com.dicoding.stylemate.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.stylemate.MainActivity
 import com.dicoding.stylemate.R
@@ -18,6 +21,8 @@ import com.google.android.material.textfield.TextInputEditText
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var editTextEmail: EditText
+    private lateinit var editTextPassword: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +37,9 @@ class LoginActivity : AppCompatActivity() {
         val password: TextInputEditText = findViewById(R.id.edt_password)
 
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
+
+        editTextEmail = findViewById(R.id.edt_email)
+        editTextPassword = findViewById(R.id.edt_password)
 
 
         loginViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[LoginViewModel::class.java]
@@ -63,6 +71,9 @@ class LoginActivity : AppCompatActivity() {
             // Pindah ke halaman SignUpActivity ketika tombol "SignUp" ditekan
             navigateToSignUp()
         }
+
+        editTextEmail.addTextChangedListener { validateEmail() }
+        editTextPassword.addTextChangedListener { validatePassword() }
     }
 
     private fun navigateToHome() {
@@ -76,5 +87,27 @@ class LoginActivity : AppCompatActivity() {
         // Pindah ke halaman SignUpActivity
         val intent = Intent(this, SignUpActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun validateEmail() {
+        val email = editTextEmail.text.toString().trim()
+
+        if (email.isEmpty()) {
+            editTextEmail.error = "Email tidak boleh kosong"
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            editTextEmail.error = "Masukkan alamat email yang valid"
+        } else {
+            editTextEmail.error = null  // Menghapus pesan kesalahan jika email valid
+        }
+    }
+
+    private fun validatePassword() {
+        val password = editTextPassword.text.toString().trim()
+
+        if (password.length < 8) {
+            editTextPassword.error = "Password harus memiliki setidaknya 8 karakter"
+        } else {
+            editTextPassword.error = null  // Menghapus pesan kesalahan jika password valid
+        }
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDF2FD"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     tools:context=".home.Home">
 
@@ -67,7 +68,7 @@
         android:id="@+id/mapView"
         app:layout_constraintTop_toBottomOf="@+id/Greeting"
         android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:layout_height="270dp"
         map:cameraZoom="15"
         tools:layout_editor_absoluteX="-16dp" />
 

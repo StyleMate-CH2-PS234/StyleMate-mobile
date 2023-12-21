@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="16dp"
     tools:context=".editProfile.EditProfileActivity">
 
@@ -18,7 +19,8 @@
     <Button
         android:id="@+id/btnUbahFoto"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/warnadasar"
         android:layout_below="@id/ivUbahFoto"
         android:layout_centerHorizontal="true"
         android:text="Ganti Foto"/>
@@ -31,14 +33,35 @@
         android:layout_marginTop="16dp"
         android:hint="Masukkan Nama"/>
 
-    <EditText
-        android:id="@+id/etUbahEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etUbahEmailLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etUbahNama"
         android:layout_marginTop="16dp"
-        android:hint="Masukkan Email"
-        android:inputType="textEmailAddress" />
+        android:layout_below="@id/etUbahNama"
+        app:startIconDrawable="@drawable/ic_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etUbahEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+<!--    <EditText-->
+<!--        android:id="@+id/etUbahEmail"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/etUbahNama"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:hint="Masukkan Email"-->
+<!--        android:inputType="textEmailAddress" />-->
 
     <EditText
         android:id="@+id/etPasswordLama"
@@ -61,7 +84,8 @@
     <Button
         android:id="@+id/btnSaveChanges"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/warnadasar"
         android:layout_below="@id/etPasswordBaru"
         android:layout_marginTop="16dp"
         android:text="Simpan Perubahan"/>

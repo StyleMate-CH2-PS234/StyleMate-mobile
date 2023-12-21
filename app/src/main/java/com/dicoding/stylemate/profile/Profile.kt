@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.dicoding.stylemate.R
 import com.dicoding.stylemate.editProfile.EditProfileActivity
 import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.FragmentProfileBinding
@@ -42,7 +43,10 @@ class Profile : Fragment() {
             binding.tvNamaProfile.visibility = View.VISIBLE
             binding.tvEmailProfile.visibility = View.VISIBLE
 
-            Glide.with(binding.imageView2).load(it.photoURL).into(binding.imageView2)
+            Glide.with(binding.imageView2)
+                .load(it.photoURL)
+                .error(R.drawable.angie)
+                .into(binding.imageView2)
             binding.tvNamaProfile.text = it.displayName
             binding.tvEmailProfile.text = it.email
             // Gunakan binding untuk mengakses elemen UI

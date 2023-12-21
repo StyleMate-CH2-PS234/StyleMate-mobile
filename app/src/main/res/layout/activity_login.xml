@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDF2FD"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#6DB9EF">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tv_login_headline"
@@ -96,7 +96,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#164863"
+        android:backgroundTint="@color/warnadasar"
         android:fontFamily="@font/montserrat_semibold"
         android:text="@string/Login"
         android:textSize="16sp"

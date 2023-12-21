@@ -40,37 +40,38 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="#9BBEC8"
         android:src="@drawable/ic_galeri"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnUpload"
-        android:layout_width="160dp"
+        android:layout_width="180dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
         android:layout_weight="10"
         android:drawableLeft="@drawable/ic_scan"
-        android:text="Scan"
-        android:textSize="24sp"
+        android:text="Rekomendasi"
+        android:backgroundTint="@color/warnadasar"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCamera"
-        app:layout_constraintStart_toEndOf="@+id/btnGaleri"
-        app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+        app:layout_constraintStart_toEndOf="@+id/btnGaleri" />
 
     <ImageButton
         android:id="@+id/btnCamera"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="#9BBEC8"
         android:src="@drawable/ic_camera"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_result"

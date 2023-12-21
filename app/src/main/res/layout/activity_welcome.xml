@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#DDF2FD"
     android:padding="16dp">
 
     <ImageView
@@ -47,10 +48,9 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login"
         android:layout_width="150dp"
-
         android:layout_height="60dp"
         android:layout_marginBottom="32dp"
-        android:backgroundTint="#164863"
+        android:backgroundTint="@color/warnadasar"
         android:fontFamily="@font/montserrat_semibold"
         android:text="@string/Login"
         android:textSize="15sp"

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DDF2FD"
     android:padding="16dp">
 
     <TextView
@@ -103,72 +104,98 @@
             android:textSize="14sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edt_konfirmasi_password_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:counterEnabled="true"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_password_layout"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edt_konfirmasi_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_medium"
+            android:hint="Konfirmasi Password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnregis"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#164863"
+        android:backgroundTint="@color/warnadasar"
         android:text="@string/register"
         android:fontFamily="@font/montserrat_semibold"
         android:textSize="16sp"
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_konfirmasi_password_layout" />
 
 
-    <Button
-        android:id="@+id/btn_google_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Login with Google"
-        android:fontFamily="@font/montserrat_semibold"
-        android:textSize="14sp"
-        app:backgroundTint="#4285F4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnregis" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_google_login"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Login with Google"-->
+<!--        android:fontFamily="@font/montserrat_semibold"-->
+<!--        android:textSize="14sp"-->
+<!--        app:backgroundTint="#4285F4"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btnregis" />-->
 
-    <Button
-        android:id="@+id/btn_facebook_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Login with Facebook"
-        android:fontFamily="@font/montserrat_semibold"
-        android:textSize="14sp"
-        app:backgroundTint="#3b5998"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_google_login" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_facebook_login"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="Login with Facebook"-->
+<!--        android:fontFamily="@font/montserrat_semibold"-->
+<!--        android:textSize="14sp"-->
+<!--        app:backgroundTint="#3b5998"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_google_login" />-->
 
-    <TextView
-        android:id="@+id/tv_register_to_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/register_to_login"
-        android:fontFamily="@font/montserrat_semibold"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_facebook_login" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv_register_to_login"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="56dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="@string/register_to_login"-->
+<!--        android:fontFamily="@font/montserrat_semibold"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_facebook_login" />-->
 
-    <TextView
-        android:id="@+id/tv_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/sign_up"
-        android:textColor="#50C2C9"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_register_to_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_facebook_login" />
+<!--    <TextView-->
+<!--        android:id="@+id/tv_login"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/montserrat_bold"-->
+<!--        android:text="@string/sign_up"-->
+<!--        android:textColor="#50C2C9"-->
+<!--        android:textSize="14sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/tv_register_to_login"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_facebook_login" />-->
 
     <ProgressBar
         android:id="@+id/loading_register"
