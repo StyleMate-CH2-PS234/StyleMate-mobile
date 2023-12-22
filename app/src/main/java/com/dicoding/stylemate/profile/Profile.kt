@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.dicoding.stylemate.R
+import com.dicoding.stylemate.SplashScreen
 import com.dicoding.stylemate.editProfile.EditProfileActivity
 import com.dicoding.stylemate.data.DataPreferences
 import com.dicoding.stylemate.databinding.FragmentProfileBinding
@@ -60,7 +61,9 @@ class Profile : Fragment() {
 
         binding.btnLogout.setOnClickListener {
             dataPreferences.setToken("")
-            val intent = Intent(activity, LoginActivity::class.java)
+            dataPreferences.setEmailPass("", "")
+            val intent = Intent(activity, SplashScreen::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             requireActivity().finish()
         }
