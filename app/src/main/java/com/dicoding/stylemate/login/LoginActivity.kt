@@ -50,6 +50,7 @@ class LoginActivity : AppCompatActivity() {
             if(it){
                 Toast.makeText(this, "Login Sukses", Toast.LENGTH_SHORT).show()
                 navigateToHome()
+                finish()
             }else {
                 Toast.makeText(this, "Login Gagal", Toast.LENGTH_SHORT).show()
             }
