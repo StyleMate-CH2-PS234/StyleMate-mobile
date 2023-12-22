@@ -1,15 +1,15 @@
 ## 👥 StyleMate - Capstone Project Bangkit 2023
 Group = CH2-PS234
 
-| Nama                    | Role               |                        
-| ----------------------- | ------------------ | 
-| Rizka Fiddiyansyah      | Machine Learning   |                        
-| Abulkhair Rizvan Yahya  | Machine Learning   |                        
-| Erlangga Yudi Pradana   | Machine Learning   |                        
-| Ahmad Yazid Isnandar    | Cloud Computing    |                        
-| Rayyan Nur Fauzan       | Cloud Computing    |                        
-| Rohmat Ubaidillah Fahmi | Mobile Development |                       
-| Dias Khairul Ihsan      | Mobile Development | 
+| Nama                    | Role               |  University       |                      
+| ----------------------- | ------------------ | ------------------ |
+| Rizka Fiddiyansyah      | Machine Learning   | Universitas Pembangunan Nasional Veteran Jawa Timur |              
+| Abulkhair Rizvan Yahya  | Machine Learning   | Politeknik Elektronika Negeri Surabaya |                     
+| Erlangga Yudi Pradana   | Machine Learning   | Politeknik Elektronika Negeri Surabaya |                    
+| Ahmad Yazid Isnandar    | Cloud Computing    | Universitas Pembangunan Nasional Veteran Jawa Timur |                     
+| Rayyan Nur Fauzan       | Cloud Computing    | Universitas Negeri Surabaya |                      
+| Rohmat Ubaidillah Fahmi | Mobile Development | Universitas Pembangunan Nasional Veteran Jawa Timur |                 
+| Dias Khairul Ihsan      | Mobile Development | Universitas Muhammadiyah Surakarta |
 
 # 💻 Technologies Used
 
@@ -30,4 +30,4 @@ Group = CH2-PS234
 If you would like to contribute to this project, you can fork this repository, make the desired changes, and submit a pull request. We appreciate contributions from the developer community.
 
 ## Contact Information
-If you have any questions or feedback, please contact the developer at [stylemate@ahmadyaz.my.id].
+If you have any questions or feedback, please contact the developer at stylemate@ahmadyaz.my.id.
