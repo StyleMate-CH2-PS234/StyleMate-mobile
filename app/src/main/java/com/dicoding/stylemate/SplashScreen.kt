@@ -16,6 +16,7 @@ class SplashScreen : AppCompatActivity() {
 
         if(dataPreferences.getEmail() != ""){
             navigateToHome()
+            finish()
         }
 
         val btnWelcome: Button = findViewById(R.id.button)
