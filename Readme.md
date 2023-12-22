@@ -16,7 +16,6 @@ Group = CH2-PS234
 - Retrofit 🌐: For making HTTP requests to the API and accessing data from the server.
 - SharedPreferences 🔐: For storing user preferences such as login data.
 - ViewBinding 🔗: For easy access to view elements in Kotlin code.
-- TensorFlow Lite 🧠: For running the Machine Learning model and performing soil analysis.
 - Material Components 💎: For design and UI components consistent with Material Design.
 - RecyclerView ♻️: For displaying campaign and tree lists in an efficient manner.
   
@@ -30,9 +29,5 @@ Group = CH2-PS234
 # 🤝 Contributions
 If you would like to contribute to this project, you can fork this repository, make the desired changes, and submit a pull request. We appreciate contributions from the developer community.
 
-# 📄 License
-This project is licensed under the [MIT License](LICENSE).
-
 ## Contact Information
-
 If you have any questions or feedback, please contact the developer at [stylemate@ahmadyaz.my.id].
